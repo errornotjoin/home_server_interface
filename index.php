@@ -8,7 +8,7 @@
 <body>
 
 
-    <form action="login.php" method="post">
+    <form action="database/decrpty.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label>
