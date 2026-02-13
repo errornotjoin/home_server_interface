@@ -22,6 +22,10 @@ while ($row = mysqli_fetch_assoc($result)) {
         header("Location: ../home.php");
         exit();
     }
+    else{
+        header("Location: ../index.php?error=wrong_password_or_username");
+        exit();
+    }
 }
 
 

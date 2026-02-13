@@ -1,0 +1,64 @@
+@import url(website_colour.css);
+
+a {
+    color: snow;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: snow;
+}
+
+body {
+    background: var(--background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+}
+main
+{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 3%;
+
+}
+main a 
+{
+    position: relative;
+    left: 5%;
+    top: 200px;
+    text-align: center;
+    background-color: #07294b;
+    border-radius: 10px;
+}
+
+main a  progress
+{
+    width: 95%;
+    height: 30px;
+    appearance: none;
+
+}
+main a  progress::-webkit-progress-bar
+{
+    background-color: #01142b;
+
+}
+main a progress::-webkit-progress-value {
+    background-color: #063292; /* green */
+    
+}
+
+footer
+{
+    position: relative;
+    background-color: #07294b;
+    border-radius: 10px;
+    top: 450px;
+    text-align: center;
+    
+}
