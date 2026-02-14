@@ -1,0 +1,69 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  gap: 1rem;
+  height: auto;
+}
+main a 
+{
+    position: relative;
+    left: 5%;
+    top: auto;
+    text-align: center;
+    background-color: #07294b;
+    border-radius: 10px;
+}
+li
+{
+    list-style: lower-roman;
+}
+.Drive_folders_holder
+{
+    position: relative;
+    height: 500px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+
+}
+.drive_infor
+{
+    width: 95%;
+    display: grid;
+    grid-template-columns: 20% 70% 10%;
+    text-align: center;
+    align-content: center;
+}
+.drive_infor progress
+{
+    width: 95%;
+    height: 40px;
+    appearance: none;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-left: 30px;
+}
+.drive_infor  progress::-webkit-progress-bar
+{
+    background-color: #01142b;
+
+}
+.drive_infor progress::-webkit-progress-value {
+    background-color: #07294b;; /* green */
+    
+}
+.drive_infor_storage
+{
+
+    position: relative;
+    text-align: center;
+    align-content: center;
+    background-color: #07294b;
+    border-radius: 10px;
+    height: 40px;
+}

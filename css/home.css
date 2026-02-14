@@ -2,7 +2,9 @@
 
 a {
     color: snow;
+    list-style: none;
 }
+
 
 html, body {
     height: 100%;
@@ -19,11 +21,27 @@ body {
     flex-direction: column;
 
 }
+header
+{
+    display: grid;
+    grid-template-columns: 40% 30% 10%;
+    gap: 1rem;
+    border-bottom: 2px solid rgba(255, 250, 250, 0.514);
+}
+.icons
+{
+    position: relative;
+    display: flex;
+    gap: 25%;
+    top: 20px;
+    justify-content: left;
+}
 main
 {
     display: grid;
     grid-template-columns: 30% 30% 30%;
     gap: 3%;
+    height: 300px;
 
 }
 main a 
