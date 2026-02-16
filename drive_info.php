@@ -63,17 +63,22 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
 
             
 
-            $new_drive_name = str_replace("\\\\", "%", $_SESSION['drive_name']);
+            $new_drive_name = str_replace("\\", "%", $_SESSION['drive_name']);
             #print(  $new_drive_name);
             $sql_code = "SELECT * FROM folders WHERE Paths LIKE '". $new_drive_name ."'";
             $result = mysqli_query($connection, $sql_code);
             while($row = mysqli_fetch_array($result)){
                 $start = substr($row['Paths'], 5);
-                if(substr_count($start, '\\') < 1){ 
+                if(substr_count($start, '/') < 1){ 
                 echo "<li>";
-                echo "<a href='folder_info.php?Paths=". $row['Paths'] ."'>";
+                echo "<a href='folder_info.php?Paths=". $row['Paths'] ."&drive_name=". $_SESSION['drive_name'] ."' class='folder_link'>";
                     echo "<section>";
-                        echo "<h1> <i class=\"fa-solid fa-folder\"></i> ". $row['folders_Name'] ." </h1>";
+                        echo "<i title='folders' class=\"fa-solid fa-folder fa-2xl\" ></i>";
+                        echo "<h1>  ". $row['folders_Name'] ." </h1>";
+                        echo "<p> ". $row['Paths'] ." </p>";
+                        echo "<p> ". $row['folder_size'] ." </p>";
+
+
                     echo "</section>";
                 echo "</a>";
                 echo "</li>";
@@ -84,16 +89,23 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
                     }
                 
             }
-            $sql_code = "SELECT * FROM files WHERE file_paths like '". $_SESSION['drive_name'] ."%'"; 
+            $sql_code = "SELECT * FROM files WHERE file_paths like '". $new_drive_name ."' limit 100"; 
             $result = mysqli_query($connection, $sql_code);
             while($row = mysqli_fetch_array($result)){ 
-                $start = substr($row['file_paths'], 4);
-                print($start);
-                if(substr_count($start, '\\') == 0){ 
+                
+                $counts = explode("/", $row['file_paths']);
+                $start = substr($row['file_paths'], 0);
+                
+                #print($start);
+
+                if(substr_count($start, '/') < 1 and strlen($new_drive_name) == strlen($row['file_paths']) - 1){ 
                     echo "<li>";
-                    echo "<a href='file_info.php?Paths=". $row['file_paths'] ."'>";
+                    echo "<a href='#'  class='folder_link'>";
                         echo "<section>";
-                            echo "<h1> <i class=\"fa-solid fa-file\"></i> ". $row['file_name'] ." </h1>";
+                            echo "<i title='". $row['file_extension'] ." file' class=\"fa-solid fa-file fa-2xl\" ></i>";
+                            echo "<h1>  ". $row['file_name'] ." </h1>";
+                            echo "<p> ". $row['file_paths'] ." </p>";
+                            echo "<p> ". $row['file_size'] ." </p>";
                         echo "</section>";
                     echo "</a>";
                     echo "</li>";

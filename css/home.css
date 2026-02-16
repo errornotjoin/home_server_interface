@@ -4,22 +4,28 @@ a {
     color: snow;
     list-style: none;
 }
+html
+{
 
+    overflow-y: scroll;
+}
 
 html, body {
-    height: 100%;
+    min-height: 100vh;
+
     margin: 0;
     padding: 0;
     color: snow;
+
 }
 
 body {
-    background: var(--background);
+        background: var(--background);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
-
 }
 header
 {
@@ -61,8 +67,9 @@ main a  progress
     appearance: none;
 
 }
-main a  progress::-webkit-progress-bar
+main a  progress::-webkit-progress-bar, .Drive_Path
 {
+    color: snow;
     background-color: #01142b;
 
 }
@@ -76,7 +83,7 @@ footer
     position: relative;
     background-color: #07294b;
     border-radius: 10px;
-    top: 450px;
+    top: 300px;
     text-align: center;
     
 }
