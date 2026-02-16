@@ -52,7 +52,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
                 echo "</section>";
             echo "</a>";
         }
-            echo "<a title='add new drive' href='add_drive.php'>";
+            echo "<a title='add new drive' href='add_Drive.php'>";
                 echo "<section>";
                     echo "<h1> + </h1>";
  
