@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
     <title>Login -- Home Server Interface</title>
 </head>
 <body>
+<header>
+    <h2>Home Server Interface</h2>
+    <h2>Drives information</h2>
+    <div class="icons">
+        
+    </div>
+    </header>
 
-
-    <form action="database/decrpty.php" method="post">
-        <label for="username">Username:</label>
+    <form action="database/decrpty.php" method="post" class="Login_form">
+        <h2 for="username">Username:</h2>
         <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
+        <h2 for="password">Password:</h2>
         <input type="password" id="password" name="password" required><br><br>
-        <a href="create_account.php">Create an account</a><br><br>
-        <input type="submit" value="Login">
+        <div class="Other_inputs">
+            
+            <div>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Login">
+            </div>
+            <a href="create_account.php">Don't have an account? Create an account</a><br><br>
+        </div>
     </form>
     
 </body>

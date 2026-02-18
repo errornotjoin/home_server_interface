@@ -1,0 +1,105 @@
+@import url(website_colour.css);
+
+a {
+    color: snow;
+    list-style: none;
+}
+html
+{
+
+    overflow-y: scroll;
+}
+
+html, body {
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+    color: snow;
+
+}
+
+body {
+        background: var(--background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+header
+{
+    display: grid;
+    grid-template-columns: 40% 30% 10%;
+    gap: 1rem;
+    border-bottom: 2px solid rgba(255, 250, 250, 0.514);
+}
+.icons
+{
+    position: relative;
+    display: flex;
+    gap: 25%;
+    top: 20px;
+    justify-content: left;
+}
+main
+{
+    align-items: center;
+    text-align: center;
+
+
+}
+.Login_form
+{
+    background-color: #07294b;
+    border-radius: 10px;
+    width: 30%;
+    position: relative;
+    left: 30%;
+    top: 150px;
+    text-align: center;
+    align-items: center;
+    height: 500px;
+    box-shadow: 0px 10px 50px black;
+
+}
+.Login_form input
+{
+    width: 95%;
+    height: 30px;
+    border-radius: 10px;
+        background-color: #01142b;
+    color: snow;
+    font-size: 20px;
+}
+.Other_inputs
+{
+    position: relative;
+    top: 120px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.Other_inputs a
+{
+    font-size: 30px;
+    background-color: #01142b;
+} 
+.Other_inputs div
+{
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+}
+.password_inputs
+{
+    display: flex;
+    gap: 10%;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.password_inputs input
+{
+    margin-bottom:20px;
+}

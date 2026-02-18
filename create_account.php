@@ -7,9 +7,17 @@ include "database/sql_login.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
     <title>Create account -- Home Server Interface</title>
 </head>
 <body>
+    <header>
+    <h2>Home Server Interface</h2>
+    <h2>Drives information</h2>
+    <div class="icons">
+        
+    </div>
+    </header>
     <?php 
         $sql_code =  "SELECT * FROM login_page";
         $sql_query = mysqli_query( $connection, $sql_code); 
@@ -17,15 +25,20 @@ include "database/sql_login.php";
         {
             if($row['Is_Create_account_allowed'] == 1) 
             { 
-                echo "<form action='database/encrpty.php' method='post'>";
+                echo "<form action='database/encrpty.php' method='post' class='Login_form'>";
                     echo "<h2> create username </h2>";
                     echo "<input type='text' name='username' placeholder='create username' required minlength='5'>";
                     echo "<h2> create password </h2>";
+                    echo "<div class='password_inputs'>";
                     echo "<input type='text' name='password' onchange='' placeholder='create password' required minlength='10' id='always_true_password'>";
-                    echo "<input type='password' name='verf_password' placeholder='verf passoword' minlength id='verf_Password'";
-                    echo "<div>";
+                    echo "<input type='password' name='verf_password' placeholder='verf passoword' minlength id='verf_Password'>";
+                    echo "</div>";
+                    echo "<div class='Other_inputs'>";
+                        echo "<div>";
                         echo "<input type='reset' value='reset'>";
                         echo "<input type='submit' value='create account'>"; 
+                        echo "</div>";
+                        echo "<a href='index.php'> back to login page </a><br><br>";
                     echo "</div>";
                 echo "</form>";
             } 
