@@ -14,6 +14,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/Only_background.css">
     <title>home -- Home Server Interface</title>
 </head>
 <body>
@@ -22,8 +23,8 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     <h2>Drives information</h2>
     <div class="icons">
         <a title="HOME" href="home.php"> <i class="fa-solid fa-house fa-2xl"></i></a>
-        <a title="Account" href="account.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
-        <a title="Settings" href="settings.php"> <i class="fa-solid fa-gear fa-2xl"></i></a>
+        <a title="Account" href="account_items/account.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+        <a title="Settings" href="account_items\settings.php"> <i class="fa-solid fa-gear fa-2xl"></i></a>
         <a title="Logout" href="index.php"><i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i></a>
     </div>
     </header>
@@ -31,12 +32,17 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     echo $fontawasome;
     ?>
     <main>
+        <section class="drives_holder">
+            <h2>Last Scan: </h2>
+            <button id="scan_now">Scan Now</button>
+
+        </section>
     <?php
     if($_SESSION['Level'] == "Admin"){
         $sql_code = "SELECT * FROM `Drivces_`";
         $result = mysqli_query($connection, $sql_code);
         while($row = mysqli_fetch_array($result)){
-            echo "<a href='drive_info.php?ID=". $row['ID'] ."'>";
+            echo "<a href='data_on_drive/drive_info.php?ID=". $row['ID'] ."'>";
                 echo "<section>";
                     echo "<h1> <i class=\"fa-solid fa-hard-drive\"></i> ". $row['drivecs_Name'] ." </h1>";
                     $new_drive_used = str_replace("GB", "", $row['drive_Used']);
@@ -52,7 +58,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
                 echo "</section>";
             echo "</a>";
         }
-            echo "<a title='add new drive' href='add_Drive.php'>";
+            echo "<a title='add new drive' href='Drive_add_and_scan/add_Drive.php'>";
                 echo "<section>";
                     echo "<h1> + </h1>";
  

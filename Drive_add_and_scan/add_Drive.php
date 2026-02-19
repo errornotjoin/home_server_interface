@@ -1,6 +1,6 @@
 <?php
-include "database/sql_login.php";
-include "outside_links.php";
+include "../database/sql_login.php";
+include "../outside_links.php";
 #this is where fontawasome kit is stored you will need to create your own kit and create outside_links.php to use it
 session_start();
 if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION['Level'])){
@@ -13,7 +13,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/home.css">
+            <link rel="stylesheet" href="../css/Only_background.css">
     <title>add Drive -- Home Server Interface</title>
 </head>
 <body>
@@ -33,10 +33,10 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     <main>
     <section class="add_drive_section">
         <h1> Add new drive </h1>
-        <form action="database/add_drive.php" method="post">
+        <form action="database/add_the_new_Drive.php" method="post">
             <input type="text" name="drive_name" placeholder="C:\\ (Must have :\\) required" required>
-            <input type="submit" value="add drive" ">
-            <input type="submit" valuse="Add And Scan">
+            <input type="submit" name="Type_of_add" value="add drive" >
+            <input type="submit" name="Type_of_add" value="Add And Scan">
         </form>
 
     </main>

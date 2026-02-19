@@ -13,7 +13,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/home.css">
+            <link rel="stylesheet" href="../css/Only_background.css">
     <title>add Drive -- Home Server Interface</title>
 </head>
 <body>
@@ -31,24 +31,21 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     echo $fontawasome;
     ?>
     <main>
-        <aside>
+    <section class="add_drive_section">
+        <section>
+            <select>
 
-        </aside>
-        <section class="add_drive_section">
-            <form id="The_form" action="#?" method="post">
-                <?php
-                    
-                
-                
-                ?>
-            </form>
+            </select>
+            <select></select>
+            <input type="submit" value="Scan Drive">
         </section>
+    
+        
 
     </main>
         <footer>
-        <p>
-            <i class="fa-solid fa-circle-info" style="color: rgba(0, 0, 0, 1.00);"></i> This site uses Font Awesome. Their CDN may receive your IP address, but no personal data or tracking cookies are used.</p>
-        </p>
+        <p><i class="fa-solid fa-circle-info" style="color: rgba(0, 0, 0, 1.00);"></i> This site uses Font Awesome. Their CDN may receive your IP address, but no personal data or tracking cookies are used.</p>
+</p>
     </footer>
     
 </body>
