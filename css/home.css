@@ -1,21 +1,20 @@
 
-.icons
-{
-    position: relative;
-    display: flex;
-    gap: 25%;
-    top: 20px;
-    justify-content: left;
-}
+
 main
 {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
+    display: flex;
+    flex-direction: column;
     gap: 3%;
     height: 300px;
 
 }
-main a 
+.holder_of_drives
+{
+    display: grid;
+    grid-template-columns: 30% 30% 25%;
+    gap: 5%;
+}
+.holder_of_drives a 
 {
     position: relative;
     left: 5%;
@@ -25,24 +24,70 @@ main a
     border-radius: 10px;
 }
 
-main a  progress
+.holder_of_drives a  progress
 {
     width: 95%;
     height: 30px;
     appearance: none;
 
 }
-main a  progress::-webkit-progress-bar, .Drive_Path
+.holder_of_drives a  progress::-webkit-progress-bar, .Drive_Path
 {
     color: snow;
     background-color: #01142b;
 
 }
-main a progress::-webkit-progress-value {
+.holder_of_drives a progress::-webkit-progress-value {
     background-color: #063292; /* green */
     
 }
-
+.drives_holder
+{
+    width: 95%;
+    background-color: #07294b;
+    height: 40px;
+    position: relative;
+    left: 3%;
+    display: grid;
+    grid-template-columns: 33% 37% 30%;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+ 
+}
+.drives_holder h2
+{
+    position: relative;
+    bottom: 13px;
+}
+.drives_holder h2:first-of-type
+{
+    text-align: start;
+}
+.drives_holder button
+{
+    width: 95;
+    height: 30px;
+    position: relative;
+    right: 2%;
+    top: 5px;
+    border-radius: 10px;
+    background-color: #01142b;
+    color: snow;
+    display: flex;
+    gap: 40%;
+}
+.drives_holder button i
+{
+    position: relative;
+    top: 12px;
+}
+.drives_holder button p
+{
+    position: relative;
+    bottom: 17px;
+    font-size: large;
+} 
 footer
 {
     position: relative;

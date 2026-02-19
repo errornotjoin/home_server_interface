@@ -30,46 +30,51 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     </header>
     <?php
     echo $fontawasome;
+    $last_scan = [];
+    $sql_code = "SELECT * FROM `Drivces_`";
+    $result = mysqli_query($connection, $sql_code);
+    while($row = mysqli_fetch_array($result)){
+        $last_scan = $row['last_check'];
+    }
     ?>
     <main>
         <section class="drives_holder">
-            <h2>Last Scan: </h2>
-            <button id="scan_now">Scan Now</button>
+            <h2>Last Scan: <?php echo $last_scan; ?></h2>
+            <h2>Welcome back, <?php echo $_SESSION['username']; ?>!</h2>
+            <button onclick="window.location.href='Drive_add_and_scan/start_scan.php'" id="scan_now"><i class="fa-solid fa-play fa-xl" style="color: rgb(255, 255, 255);"></i><p>Scan Now</p></button>
 
         </section>
-    <?php
-    if($_SESSION['Level'] == "Admin"){
-        $sql_code = "SELECT * FROM `Drivces_`";
-        $result = mysqli_query($connection, $sql_code);
-        while($row = mysqli_fetch_array($result)){
-            echo "<a href='data_on_drive/drive_info.php?ID=". $row['ID'] ."'>";
-                echo "<section>";
-                    echo "<h1> <i class=\"fa-solid fa-hard-drive\"></i> ". $row['drivecs_Name'] ." </h1>";
-                    $new_drive_used = str_replace("GB", "", $row['drive_Used']);
-                    $new_drive_size = str_replace("GB", "", $row['drivces_size']);
-                    
-                    echo "<progress value='". $new_drive_used ."' max='". $new_drive_size ."' title='".$row['drive_Used'] ." / ". $row['drivces_size'] ."'></progress>";
-                    if($new_drive_used == $new_drive_size or $new_drive_used > $new_drive_size / 2 ){
-                        echo "<p style='color: red;'> ". $row['drive_Used'] ." / ". $row['drivces_size'] ." <i class=\"fa-solid fa-exclamation fa-sm\"></i> </p>";
-                    }
-                    else{
-                        echo "<p> ". $row['drive_Used'] ." / ". $row['drivces_size'] ." </p>";
-                    }
-                echo "</section>";
-            echo "</a>";
-        }
-            echo "<a title='add new drive' href='Drive_add_and_scan/add_Drive.php'>";
-                echo "<section>";
-                    echo "<h1> + </h1>";
- 
-                echo "</section>";
-            echo "</a>";
-    }
-    else{
-        echo "<h1> Welcome user ". $_SESSION['username'] ."</h1>";
-    }
-    
+        <section class="holder_of_drives">
+        <?php
+        if($_SESSION['Level'] == "Admin"){
+            $sql_code = "SELECT * FROM `Drivces_`";
+            $result = mysqli_query($connection, $sql_code);
+            while($row = mysqli_fetch_array($result)){
+                echo "<a href='data_on_drive/drive_info.php?ID=". $row['ID'] ."'>";
+                    echo "<section>";
+                        echo "<h1> <i class=\"fa-solid fa-hard-drive\"></i> ". $row['drivecs_Name'] ." </h1>";
+                        $new_drive_used = str_replace("GB", "", $row['drive_Used']);
+                        $new_drive_size = str_replace("GB", "", $row['drivces_size']);
+                        
+                        echo "<progress value='". $new_drive_used ."' max='". $new_drive_size ."' title='".$row['drive_Used'] ." / ". $row['drivces_size'] ."'></progress>";
+                        if($new_drive_used == $new_drive_size or $new_drive_used > $new_drive_size / 2 ){
+                            echo "<p style='color: red;'> ". $row['drive_Used'] ." / ". $row['drivces_size'] ." <i class=\"fa-solid fa-exclamation fa-sm\"></i> </p>";
+                        }
+                        else{
+                            echo "<p> ". $row['drive_Used'] ." / ". $row['drivces_size'] ." </p>";
+                        }
+                    echo "</section>";
+                echo "</a>";
+            }
+                echo "<a title='add new drive' href='Drive_add_and_scan/add_Drive.php'>";
+                    echo "<section>";
+                        echo "<h1> + </h1>";
+     
+                    echo "</section>";
+                echo "</a>";
+        } 
     ?>
+        </section>
     </main>
     <footer>
         <p><i class="fa-solid fa-circle-info" style="color: rgba(0, 0, 0, 1.00);"></i> This site uses Font Awesome. Their CDN may receive your IP address, but no personal data or tracking cookies are used.</p>

@@ -21,10 +21,10 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     <h2>Home Server Interface</h2>
     <h2>Drives information</h2>
     <div class="icons">
-        <a title="HOME" href="home.php"> <i class="fa-solid fa-house fa-2xl"></i></a>
-        <a title="Account" href="account.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
-        <a title="Settings" href="settings.php"> <i class="fa-solid fa-gear fa-2xl"></i></a>
-        <a title="Logout" href="index.php"><i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i></a>
+<a title="HOME" href="../home.php"> <i class="fa-solid fa-house fa-2xl"></i></a>
+        <a title="Account" href="../account_items/account.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+        <a title="Settings" href="../account_items\settings.php"> <i class="fa-solid fa-gear fa-2xl"></i></a>
+        <a title="Logout" href="../index.php"><i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i></a>
     </div>
     </header>
     <?php
