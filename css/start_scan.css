@@ -1,0 +1,39 @@
+.add_drive_section
+{
+    position: relative;
+    text-align: center;
+
+
+}
+.Pick_the_scan
+{
+    background-color: #07294b;
+    width: 50%;
+    height: 50px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    left: 25%;
+}
+.the_out_put
+{
+    background-color: #03101d;
+    width:95%;
+    height: 700px;
+
+    position: relative;
+    top: 20px;
+    left: 3%;
+    border-radius: 10px;
+    border: 5px solid #01142b;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.the_out_put pre
+{
+    text-align: start;
+    position: relative;
+    left: 2%;
+    color: springgreen;
+    
+}
