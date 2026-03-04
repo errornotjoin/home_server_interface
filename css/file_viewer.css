@@ -1,0 +1,66 @@
+
+.file_viewer
+{
+    background-color: #03101d;
+    width:95%;
+    height: 700px;
+
+    position: relative;
+    top: 20px;
+    left: 3%;
+    border-radius: 10px;
+    border: 5px solid #01142b;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.file_viewer_header
+{
+    width: 95%;
+    height: 55px;
+    position: relative; 
+    left: 3%;
+    top: 20px;
+    display: grid;
+    grid-template-columns: 20% 30% 5% 20% 10%;
+    gap: 3%;
+        background-color: #051f38;
+    text-align: center;
+}
+
+.file_not_allow_view
+{
+    background-color: #03101d;
+    width:95%;
+    height: 100px;
+
+    position: relative;
+    top: 20px;
+    left: 3%;
+    border-radius: 10px;
+    border: 5px solid #01142b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.file_viewer_header a
+{
+    position: relative;
+    top: 10px;
+    left: -15%;
+    background-color: #051f38;
+
+    height: 30px;
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+}
+.file_viewer_header a i
+{
+    position: relative;
+    top: 0px;
+}
+.file_viewer_header i 
+{
+    position: relative;
+    top: 25px;
+}

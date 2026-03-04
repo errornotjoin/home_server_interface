@@ -101,7 +101,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
 
                 if(substr_count($start, '/') < 1 and strlen($new_drive_name) == strlen($row['file_paths']) - 1){ 
                     echo "<li>";
-                    echo "<a href='#'  class='folder_link'>";
+                    echo "<a href='file_viewer.php?file_paths=". $row['file_paths'] ."'  class='folder_link'>";
                         echo "<section>";
                             echo "<i title='". $row['file_extension'] ." file' class=\"fa-solid fa-file fa-2xl\" ></i>";
                             echo "<h1>  ". $row['file_name'] ." </h1>";
