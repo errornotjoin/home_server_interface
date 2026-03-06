@@ -1,0 +1,52 @@
+@import url('website_colour.css');
+a
+{
+    color: snow;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+}
+a::after
+{
+    color: snow;
+}
+
+body
+{
+    background: var(--background);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: snow;
+}
+header
+{
+
+    height: 50px;
+    border-bottom: 3px solid var(--other-colour);
+    display: grid;
+    grid-template-columns: 30% 40%  30%;
+}
+footer
+{
+    position: relative;
+    top: 300px;
+    height: 50px;
+    border-top: 3px solid var(--other-colour);
+    text-align: center;
+}
+.middle_child_of_header
+{
+    text-align: center;
+    align-items: center;
+}
+.icons
+{
+    position: relative;
+    display: flex;
+    gap: 5%;
+}
+.icons a
+{
+    position: relative;
+    top: 10px;
+}

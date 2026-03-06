@@ -1,99 +1,63 @@
-
-
-main
-{
-    display: flex;
-    flex-direction: column;
-    gap: 3%;
-    height: 300px;
-
-}
+@import url('website_colour.css');
 .holder_of_drives
 {
     display: grid;
-    grid-template-columns: 30% 30% 25%;
-    gap: 5%;
-}
-.holder_of_drives a 
-{
+    grid-template-columns: 50% 50%;
     position: relative;
-    left: 5%;
-    top: 200px;
-    text-align: center;
-    background-color: #07294b;
+    margin-top: 30px;
+}
+.holder_of_drives section
+{
+    background-color: var(--other-colour);
+    margin: 10px;
+    padding: 10px;
     border-radius: 10px;
 }
 
-.holder_of_drives a  progress
+.holder_of_drives section div
 {
-    width: 95%;
-    height: 30px;
-    appearance: none;
-
-}
-.holder_of_drives a  progress::-webkit-progress-bar, .Drive_Path
-{
-    color: snow;
-    background-color: #01142b;
-
-}
-.holder_of_drives a progress::-webkit-progress-value {
-    background-color: #063292; /* green */
-    
-}
-.drives_holder
-{
-    width: 95%;
-    background-color: #07294b;
-    height: 40px;
-    position: relative;
-    left: 3%;
     display: grid;
-    grid-template-columns: 33% 37% 30%;
+    grid-template-columns: 20% 60% 20%;
+}
+.holder_of_drives section progress
+{
+    width: 95%;
+    height: 50px;
+}
+
+.Add_new_drive
+{
+    height: 100px;
+    align-items: center;
     text-align: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
- 
 }
-.drives_holder h2
+.Add_new_drive i
 {
     position: relative;
-    bottom: 13px;
+    top: 40px;
 }
-.drives_holder h2:first-of-type
-{
-    text-align: start;
-}
-.drives_holder button
-{
-    width: 95;
-    height: 30px;
+ .drives i
+ {
     position: relative;
-    right: 2%;
-    top: 5px;
-    border-radius: 10px;
-    background-color: #01142b;
-    color: snow;
-    display: flex;
-    gap: 40%;
-}
-.drives_holder button i
-{
-    position: relative;
-    top: 12px;
-}
-.drives_holder button p
-{
-    position: relative;
-    bottom: 17px;
-    font-size: large;
-} 
-footer
-{
-    position: relative;
-    background-color: #07294b;
-    border-radius: 10px;
-    top: 300px;
-    text-align: center;
+    top: 15px;
     
+ }
+.drive_status
+{
+    position: relative;
+    top: 10px;
+}
+.drives div
+{
+    background-color: var(--offset-colour);
+    border-radius: 10px;
+}
+.holder_of_drives section:hover 
+{
+background-image: linear-gradient(to bottom, #0652aa, #01295e);
+}
+.holder_of_drives section:hover div
+{
+    background-color: #032f5c;
+    border: 2px solid black;
 }

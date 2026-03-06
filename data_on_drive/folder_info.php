@@ -14,14 +14,14 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/Only_background.css">
+    <link rel="stylesheet" href="../css/background.css">
     <link rel="stylesheet" href="../css/drive_infor.css">
     <title>Document</title>
 </head>
 <body>
     <header>
     <h2>Home Server Interface</h2>
-    <h2>Drives information</h2>
+    <h2 class="middle_child_of_header">Drives information</h2>
     <div class="icons">
         <a title="HOME" href="../home.php"> <i class="fa-solid fa-house fa-2xl"></i></a>
         <a title="Account" href="../account_items/account.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>

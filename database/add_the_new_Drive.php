@@ -20,7 +20,7 @@ if($Type_of_add == "Add And Scan"){
     exit();
 }
 else{
-    header("Location: drive_info.php?ID=". $_SESSION['drive_ID']);
+    header("Location: ../data_on_drive/drive_info.php?ID=". $_SESSION['drive_ID']);
     exit();
 }
 

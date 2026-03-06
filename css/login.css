@@ -1,70 +1,90 @@
-
-.icons
+form
 {
     position: relative;
-    display: flex;
-    gap: 25%;
-    top: 20px;
-    justify-content: left;
-}
-main
-{
-    align-items: center;
-    text-align: center;
-
-
-}
-.Login_form
-{
-    background-color: #07294b;
-    border-radius: 10px;
-    width: 30%;
-    position: relative;
-    left: 30%;
+    left: 27%;
     top: 150px;
-    text-align: center;
     align-items: center;
-    height: 500px;
-    box-shadow: 0px 10px 50px black;
-
+    text-align: center;
+    border-radius: 10px;
+    background: var(--other-colour);
+    width: 45%;
+    height: 400px;
+    box-shadow: 10px 10px 100px #04111d 10px 10px 100px #071c30 10px 10px 100px rgb(4, 17, 29);
 }
-.Login_form input
+form input, button
 {
     width: 95%;
     height: 30px;
     border-radius: 10px;
-        background-color: #01142b;
+    background-color: var(--offset-colour) ;
     color: snow;
-    font-size: 20px;
 }
+button
+{
+    display: grid;
+    grid-template-columns: 20% 60%;
+
+
+}
+.custom_button h2
+{
+    text-align: start;
+    position: relative;
+    bottom: 5px;
+}
+.custom_button h3
+{
+    text-align: center;
+}
+.user_input
+{
+    position: relative;
+    top: 20px;
+
+    margin-bottom: 10px;
+}
+.user_input h2
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+ 
+}
+
 .Other_inputs
 {
     position: relative;
-    top: 120px;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
+    top: 50px;
+
 }
-.Other_inputs a
-{
-    font-size: 30px;
-    background-color: #01142b;
-} 
 .Other_inputs div
 {
+    position: relative;
     display: flex;
+    width: 95%;
     gap: 5%;
-    justify-content: center;
+    margin-left: 3%;
+        color: snow;
+    
 }
-.password_inputs
+.Other_inputs div button
 {
-    display: flex;
-    gap: 10%;
-    flex-direction: column;
+    height: 50px;
+}
+.other_other
+{
+    position: relative;
+    top: 40px;
     text-align: center;
     align-items: center;
+    color: snow;
 }
-.password_inputs input
+.other_other a
 {
-    margin-bottom:20px;
+    position: relative;
+    left: 32%;
+}
+input:hover, a:hover
+{
+    background-color: #041322;
 }
