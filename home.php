@@ -47,7 +47,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
             $sql_code = "SELECT * FROM `Drivces_`";
             $result = mysqli_query($connection, $sql_code);
             while($row = mysqli_fetch_array($result)){
-                echo "<a href='data_on_drive/drive_info.php?ID=". $row['ID'] ."'>";
+                echo "<a href='data_on_drive/folder_info.php?ID=". $row['ID'] ."&Type_of_information=drive'>";
                     echo "<section title='View: ". $row['drivecs_Name'] ." Files' class='drives'>";
                         echo "<div>
                         <h2><i class=\"fa-solid fa-hard-drive fa-xl\"> </i></h2>
