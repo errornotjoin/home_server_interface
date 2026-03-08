@@ -1,0 +1,51 @@
+@import url('website_colour.css');
+main
+{
+    position: relative;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    overflow-y: scroll;
+}
+.drives
+{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--other-colour);
+    margin-bottom: 10px;
+
+}
+.folder_info
+{
+    display: grid;
+    grid-template-columns: 15% 70% 5% 5%;
+
+
+}
+.folder_info
+{
+    text-align: center;
+}
+.folder_path_info
+{
+    background-color: var(--offset-colour);
+    height: 50px;
+
+}
+.folder_path_info h2
+{
+    position: relative;
+    bottom: 10px
+    ;
+    text-align: center;
+}
+.drives:hover 
+{
+background-image: linear-gradient(to bottom, #0652aa, #01295e);
+}
+.drives:hover  .folder_path_info
+{
+    background-color: #032f5c;
+    border: 2px solid black;
+}

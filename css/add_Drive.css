@@ -1,0 +1,49 @@
+@import url("website_colour.css");
+.add_drive_section
+{
+    position: relative;
+    left: 27%;
+    top: 150px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    background: var(--other-colour);
+    width: 45%;
+    height: 200PX;
+    box-shadow: 10px 10px 100px #04111d 10px 10px 100px #071c30 10px 10px 100px rgb(4, 17, 29);
+    color: snow;
+}
+.add_drive_section H1
+{
+    position: relative;
+    top: 20px;
+    margin-bottom: 30px    ;
+}
+.user_input
+{
+    width: 95%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: var(--offset-colour) ;
+    color: snow;
+    text-align: center;
+}
+.Other_Form div
+{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 5%;
+    position: relative;
+    top: 30px;
+    align-items: center;
+    text-align: center;
+}
+.Other_Form div input
+{
+    position: relative;
+    left: 6%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: var(--offset-colour) ;
+    color: snow;
+}

@@ -47,7 +47,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
             $sql_code = "SELECT * FROM `Drivces_`";
             $result = mysqli_query($connection, $sql_code);
             while($row = mysqli_fetch_array($result)){
-                echo "<a href='data_on_drive/folder_info.php?ID=". $row['ID'] ."&Type_of_information=drive'>";
+                echo "<a href='data_on_drive/folder_info.php?drivecs_Name=". $row['drivecs_Name'] ."&Type_of_information=drive'>";
                     echo "<section title='View: ". $row['drivecs_Name'] ." Files' class='drives'>";
                         echo "<div>
                         <h2><i class=\"fa-solid fa-hard-drive fa-xl\"> </i></h2>
@@ -55,14 +55,7 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
                         <h2 class='drive_status'> ". $row['drive_Used'] ." / ". $row['drivces_size'] ."</h2></div>";
                         $new_drive_used = str_replace("GB", "", $row['drive_Used']);
                         $new_drive_size = str_replace("GB", "", $row['drivces_size']);
-                        
                         echo "<progress value='". $new_drive_used ."' max='". $new_drive_size ."' title='".$row['drive_Used'] ." / ". $row['drivces_size'] ."'></progress>";
-                        //if($new_drive_used == $new_drive_size or $new_drive_used > $new_drive_size / 2 ){
-                        //    echo "<p style='color: red;'> ". $row['drive_Used'] ." / ". $row['drivces_size'] ." <i class=\"fa-solid fa-exclamation fa-sm\"></i> </p>";
-                        //}
-                        //else{
-                        //    echo "<p> ". $row['drive_Used'] ." / ". $row['drivces_size'] ." </p>";
-                       // }
                     echo "</section>";
                 echo "</a>";
             }
