@@ -31,24 +31,41 @@ session_start();
     </header>
     <main>
         <?php
+        $allow_go_back = true; # this is to allow the user to go back to the previous folder
         $total_folders_and_files = 0; # this see if any folders or files are found
-        if(isset($_GET["Type_of_information"]) and $_GET["Type_of_information"] == "drive")
+        
+        if(isset($_GET["Type_of_information"]) and $_GET["Type_of_information"] == "drive" )
         {
             unset($_SESSION['Path_history']);#the history being cleared as it get replaced with the new drive path
+
             $change_drive = str_replace("\\\\", "//", $_GET["drivecs_Name"]);
+
             $_SESSION['Path_history'] = []; # telling the system that this is the first item in the path history
+
             $_SESSION['Path_history'][0] = $change_drive; #the root of the drive 
-            $_GET["drivecs_Name"] = $change_drive; 
-            $root_name = $_GET["drivecs_Name"];
+            $_SESSION['Root'] = $change_drive; 
+            
+            $_GET["drivecs_Name"] = $change_drive;
+
+            $root_name = $change_drive; # this is the root name of the drive, it is used to compare with the folder paths to make sure that only the folders in the drive are shown
+
+            $allow_go_back = false; # this is to make sure that the user can not go back to the previous drive when they are in the root of the drive
 
         }
         #make sure that if the page reloads the page it dose not add it back 
-        else if(end($_SESSION['Path_history']) != $_GET["drivecs_Name"])
+        else if(end($_SESSION['Path_history']) != $_GET["drivecs_Name"] )
         {
-            # add items to user path history 
-            # to allow the user to go back to previous folders
-            $_SESSION['Path_history'][] = $_GET["drivecs_Name"];
-
+            if(isset($_GET["Add_to_history"]) and $_GET["Add_to_history"] != "true" )
+            {
+                #remove the current folder from the path history if the user is going back to the previous folder, it removes the current folder from the path history so that the user can go back to it again if they want to
+                $_SESSION['Path_history'] = array_slice($_SESSION['Path_history'], 0, count($_SESSION['Path_history']) - 1); # this is to remove the current folder from the path history if the user is going back to the previous folder, it removes the current folder from the path history so that the user can go back to it again if they want to
+            }
+            else
+            {
+                # add items to user path history 
+                # to allow the user to go back to previous folders
+                $_SESSION['Path_history'][] = $_GET["drivecs_Name"];
+            }
         }
         #idk if i going to keep it,
         #but right i'm using as testing the $_SESSION['Path_history'] to see if it works as intended
@@ -74,6 +91,21 @@ session_start();
             echo "</div>";
         echo "</aside>";
         echo "<section class='folders_and_files'>"; # this is the section that contains the folders and files information
+        if($_GET["drivecs_Name"] != $_SESSION['Root'] ) # this is to show the go back button if the user is not in the root of the drive
+        {
+            echo "<a href='?drivecs_Name=" . $_SESSION['Path_history'][count($_SESSION['Path_history']) - 2] . "&Add_to_history=false'>"; # this is to go back to the previous folder, it gets the previous item in the path history
+                echo "<section class='drives'>";
+                echo "<div class='folder_info'>";
+                    echo "<h2><i class='fa-solid fa-arrow-left fa-2xl'></i></h2>";
+                    echo "<h2>Go back</h2>";
+                echo "</div>";
+                echo "<div class='folder_path_info'>";
+                    echo "<h2>" . htmlspecialchars($_SESSION['Path_history'][count($_SESSION['Path_history']) - 2]) . "</h2>";
+                echo "</div>";
+                echo "</section>";
+            echo "</a>";
+        }
+
 
         $sql_code = "SELECT * FROM `folders` WHERE `Paths` like '" . $_GET["drivecs_Name"] . "%'";
         $result = mysqli_query($connection, $sql_code);
@@ -98,7 +130,49 @@ session_start();
                         echo "</div>";
                     echo "</section>";
                 echo "</a>";
+                $total_folders_and_files += 1;
             }
+
+        }
+        else
+        {
+            
+        }
+        $sql_code = "SELECT * FROM `files` WHERE `file_paths` like '" . $_GET["drivecs_Name"] . "%'";
+        $result = mysqli_query($connection, $sql_code);
+        if(mysqli_num_rows($result) > 0 ) # this is to make sure that only the root folders of the drive are shown
+        {
+            while($row = mysqli_fetch_assoc($result))
+            {
+                if(substr_count($row["file_paths"], "/")  != substr_count($_GET["drivecs_Name"], "/") )
+                {
+                    continue; # this is to make sure that only the root folders of the drive are shown
+                }
+                echo "<a href='?Type_of_information=folder&drivecs_Name=" . $row["file_paths"] . "/'>";
+                    echo "<section class='drives'>";
+                        echo "<div class='folder_info'>";
+                            echo "<h2> <i class='fa-solid fa-file fa-2xl'></i> </h2>";
+                            echo "<h2>" . htmlspecialchars($row["file_name"]) . "</h2>";
+                            echo "<h3>Size: " . htmlspecialchars($row["file_size"]) . " </h3>";
+                            echo "<h3>Last modified: " . htmlspecialchars($row["When_updated"]) . "</h3>";
+                        echo "</div>";
+                        echo "<div class='folder_path_info'>";
+                        echo "<h2>" . htmlspecialchars($row["file_paths"]) . "</h2>";
+                        echo "</div>";
+                    echo "</section>";
+                echo "</a>";
+                $total_folders_and_files += 1;
+            }
+
+        }
+        if($total_folders_and_files == 0)
+        {
+            echo "<section class='drives'>";
+                echo "<div class='folder_info'>";
+                    echo "<h2><i class='fa-solid fa-triangle-exclamation fa-2xl'></i></h2>";
+                    echo "<h2>No folders or files found in this directory</h2>";
+                echo "</div>";
+            echo "</section>";
         }
         
         echo "</section>";
