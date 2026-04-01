@@ -45,28 +45,68 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
                 $Type_of_scan = array_keys($other_yml_link['types_of_scans']);
                 #placing the names into options for the select tag
                 foreach($Type_of_scan as $scan){
+                    $new_scan = str_replace("_", " ", $scan);
                     if(isset($_GET['Type_of_scans']) == true)
                     {
                         if($scan == $_GET['Type_of_scans'])
                         {
-                            echo "<option value='". $scan ."' selected>". $scan ."</option>";
+                            echo "<option value='". $scan ."' selected>". $new_scan ."</option>";
                         }
                         else
                         {
-                            echo "<option value='". $scan ."'>". $scan ."</option>";
+                            echo "<option value='". $scan ."'>". $new_scan ."</option>";
                         }
                     }
                     else
                     {
-                        echo "<option value='". $scan ."'>". $scan ."</option>";
+                        echo "<option value='". $scan ."'>". $new_scan ."</option>";
                     }
                 }
+
+
                 ?>
+
             </select>
-            <input type="submit" value="Scan Drive">
+            <input class="submit_button" type="submit" value="Scan Drive">
+            <?php
+                    if(isset($_GET['Type_of_scans'])){
+                        echo "<h2>DONT CLOSE/REFRESH THIS PAGE WHILE THE SCAN IS RUNNING</h2>";
+                    $sql_code = "SELECT * FROM `Scans_times` Where `Type_of_Scans` = '". $_GET['Type_of_scans'] ."' ";
+                    $result = mysqli_query($connection, $sql_code);
+                    if(mysqli_num_rows($result) > 0 ){
+                        while($row = mysqli_fetch_array($result)){
+                        if($row['Type_of_Scans'] == $_GET['Type_of_scans']){
+
+                            //$correct_time = str_replace(".", "", $row['Time']);
+
+                            echo "<div class='Outer'>";
+                                echo "<div class='inner' style='animation: Loading_bar {$row['Time']}s linear forwards;'>";
+                                
+                                echo "</div>";
+                            echo "</div>";
+                            
+                        }}
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+            
+            
+            ?>
+
         </form>
         <section class="the_out_put">
             <?php
+                    
+
+                    ob_flush();
+                    flush();
+
+
+
                 if(isset($_GET['Type_of_scans']))
                 {
                     #regetting the items from the yml files
@@ -93,31 +133,36 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
                         
                     }
                     set_time_limit(0);
+
                     #cd = where the python folder is e.g it will open the command prompt in that folder and then run the python executable from the venv and then run the index.py file with the -u flag to make it unbuffered so we can get the output in real time and 2>&1 is to get the error output as well
                     #the second part is this folder python executable is
                     #the last part is the python file to run and the -u is to make it unbuffered so we can get the output in real time
                     #and 2>&1 is to get the error output as well
                     $cmd = 'cd C:\xampp\htdocs\home_server_information && C:\xampp\htdocs\home_server_interface\.venv\Scripts\python.exe -u index.py 2>&1';
                     #opens a process to run the command and get the output
+                    $start_of_scan = microtime(true);
                     $handle = popen($cmd, "r");
                     #check if its at the end of file and if it's not then get the output and print it
                     while (!feof($handle)) {
                         #print the output of the command
-                        $buffer = fgets($handle);
+                        $buffer =  fgets($handle);
                         #covents it to html friendly format and prints it
                         echo "<pre><u>" . htmlspecialchars($buffer) . "</pre>";
-                        #flushes the output buffer to the browser
+                        ##flushes the output buffer to the browser
                         ob_flush();
                         flush();
                     }
+                    $end_of_scan = microtime(true);
+                    ob_flush();
+                    flush();
+                    #close the process
                     pclose($handle);
-
+                    
                 }
-                
+                ob_flush();
+                flush();
             ?>
-        
         </section>
-        
     </main>
 </body>
 </html>

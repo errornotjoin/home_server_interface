@@ -1,0 +1,83 @@
+@import url('website_colour.css');
+.add_drive_section
+{
+    position: relative;
+    width: 60%;
+    background-color: var(--other-colour);
+    left: 20%;
+    top: 40px;
+}
+.Pick_the_scan
+{
+    width: 100%;
+    background-color: var(--offset-colour);
+    height: 100px;
+    border-bottom: 2px solid black;
+
+
+}
+.Pick_the_scan select, .submit_button
+{
+    height: 30px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: var(--other-colour);
+    color: snow;
+    text-align: center;
+    font-size: larger;
+    position: relative;
+    top: 15px;
+    left: 5%;
+}
+.submit_button
+{
+    width: 40%;
+    top: 14px;
+    left: 5%;
+
+}
+.Outer
+{
+    height: 40px;
+    width: 95%;
+    position: relative;
+    top: 20px;
+    left: 2%;
+    background-color: var(--other-colour);
+    border-radius: 10px;
+    border:1px solid black;
+}
+.inner
+{
+    height: 40px;
+    width: 10%;
+    position: relative;
+    background-color: var(--offsets-colour);
+    position: relative;
+
+    border-radius: 10px;
+
+}
+.the_out_put
+{
+    height: 500px;
+    width: 99%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.the_out_put pre 
+{
+    position: relative;
+    left: 2%;
+}
+@keyframes Loading_bar {
+    0%
+    {
+        width: 10%;
+    }
+    100%
+    {
+        width: 100%;
+    }
+    
+}

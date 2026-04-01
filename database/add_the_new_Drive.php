@@ -15,12 +15,12 @@ $drive_name = $_POST['drive_name'];
 $driveyml_link['drives'][] = $drive_name;
 //this addes the new drive to the yml file and then saves it 
 file_put_contents($paht, Yaml::dump($driveyml_link, 4, 2));
-if($Type_of_add == "Add And Scan"){
-    header("Location: scan_drive.php?drive_name=".$drive_name);
+if($Type_of_add == "Add_And_Scan"){
+    header("Location: ../Drive_add_and_scan/start_scan.php");
     exit();
 }
 else{
-    header("Location: ../data_on_drive/drive_info.php?ID=". $_SESSION['drive_ID']);
+    header("Location: ../home.php?System_message=Drive_added_successfully");
     exit();
 }
 

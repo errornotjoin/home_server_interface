@@ -39,6 +39,17 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     }
     ?>
     <main>
+        <?php
+        if(isset($_GET['System_message']) and !empty($_GET['System_message'])){
+            echo "<div class='System_message'>
+                <h2>". $_GET['System_message'] ."</h2>
+            <div>
+            <button onclick='this.parentElement.style.display=\"none\"'>X</button>
+            <div>
+            </div>";
+        }
+        
+        ?>
 
         <section class="holder_of_drives">
         <?php

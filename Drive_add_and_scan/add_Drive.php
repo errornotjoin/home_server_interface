@@ -34,11 +34,11 @@ if(!isset($_SESSION['username']) or !isset($_SESSION['ID']) or !isset($_SESSION[
     <main>
     <section class="add_drive_section">
         <h1> Add new drive </h1>
-        <form action="../database/add_the_new_Drive.php" method="post" class="Other_Form">
+        <form action="../database/add_the_new_Drive.php" method="POST" class="Other_Form">
             <input class="user_input" type="text" name="drive_name" placeholder="C:\\ (Must have :\\ required) " required>
             <div>
-                <input type="submit" name="Type_of_add" value="add drive" >
-                <input type="submit" name="Type_of_add" value="Add And Scan">
+                <input type="submit" name="Type_of_add" value="add_drive" >
+                <input type="submit" name="Type_of_add" value="Add_And_Scan">
             </div>
         </form>
 

@@ -171,6 +171,7 @@ session_start();
                 echo "<div class='folder_info'>";
                     echo "<h2><i class='fa-solid fa-triangle-exclamation fa-2xl'></i></h2>";
                     echo "<h2>No folders or files found in this directory</h2>";
+                    echo "<h2><i class='fa-solid fa-triangle-exclamation fa-2xl'></i></h2>";
                 echo "</div>";
             echo "</section>";
         }
